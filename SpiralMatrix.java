@@ -4,6 +4,10 @@ public class SpiralMatrix {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+        if (n<0) {
+            System.out.println("Spiral is not possible of negative values");
+            return;
+        }
         printMatrix(createSpiralMatrix(n));     // both function call
         sc.close();
     }
@@ -43,7 +47,19 @@ public class SpiralMatrix {
     public static void printMatrix(int[][] matrix) {
         for (int[] arr : matrix) {
             for (int j : arr) {
-                System.out.print(j + "\t");
+                String temp = Integer.toString(j);
+                if (temp.length()==1) {
+                    System.out.print(j + "    ");
+                }
+                else if (temp.length()==2) {
+                    System.out.print(j + "   ");
+                }
+                else if (temp.length()==3) {
+                    System.out.print(j + "  ");
+                }
+                else if (temp.length()==4) {
+                    System.out.print(j + " ");
+                }
             }
             System.out.println();
         }
